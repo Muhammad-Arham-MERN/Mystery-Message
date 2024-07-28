@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
 import { Skeleton } from "@/components/ui/skeleton";
+import { signIn, signOut } from "next-auth/react";
 
 type messages = {
   title: string;
@@ -103,14 +104,14 @@ export default function Home() {
       </div>
       {usersLoading ? (
         <div className="sm:grid xl:grid-cols-3 sm:grid-cols-1 gap-x-1 mx-8 mt-4">
-          <Skeleton className="h-32"/>
-          <Skeleton className="h-32"/>
-          <Skeleton className="h-32"/>
+          <Skeleton className="h-32" />
+          <Skeleton className="h-32" />
+          <Skeleton className="h-32" />
         </div>
       ) : (
         <div className="sm:grid xl:grid-cols-3 sm:grid-cols-1 gap-x-1 bg-gray-100 xl:space-x-8 sm:space-x-0 px-8 items-center mx-8 my-4 rounded-2xl">
           {homepageUsers.map((messages, index) => (
-            <div key={index} className="xl:border-r-4 border-b-4 border-white pr-10 py-3">
+            <div key={index} className=" border-white pr-10 py-3">
               <div className="flex space-x-2">
                 <h1 className="text-3xl text-black font-bold">Username:</h1>
                 <h1 className="text-2xl text-slate-700 font-semibold">

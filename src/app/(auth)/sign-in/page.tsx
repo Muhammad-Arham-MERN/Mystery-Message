@@ -52,31 +52,30 @@ export default function SignIn() {
       password: data.password,
     });
     if (result?.error) {
-      if (result.error === 'CredentialsSignin') {
+      if (result.error === "CredentialsSignin") {
         toast({
-          title: 'Login Failed',
-          description: 'Incorrect username or password',
-          variant: 'destructive',
+          title: "Login Failed",
+          description: "Incorrect username or password",
+          variant: "destructive",
         });
       } else {
         toast({
-          title: 'Error',
+          title: "Error",
           description: result.error,
-          variant: 'destructive',
+          variant: "destructive",
         });
       }
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
 
     if (result?.url) {
       toast({
-        title: 'Success',
+        title: "Success",
         description: result.error,
       });
-      router.replace('/dashboard');
+      router.replace("/dashboard");
     }
   };
-
 
   if (session) {
     return (
@@ -141,9 +140,16 @@ export default function SignIn() {
               )}
             </Button>
           </form>
+            <Button className="bg-blue-500" onClick={() => signIn("google")}>
+              
+              <p>login with google</p>
+            </Button>
         </Form>
         <div>
-          Not a member yet? <Link href="/Register" className="text-blue-500">register</Link>
+          Not a member yet?{" "}
+          <Link href="/Register" className="text-blue-500">
+            register
+          </Link>
         </div>
       </div>
     </div>
